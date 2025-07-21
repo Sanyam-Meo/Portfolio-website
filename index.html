@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanyam Meo | Portfolio</title>
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#image">Sanyam Meo</a>
+            </div>
+            <div class="nav-links">
+                <a href="#" target="_blank">GitHub</a>
+                <a href="#" target="_blank">LinkedIn</a>
+                <a href="mailto:sanyam.meo@grazitti.com">Email</a>
+            </div>
+            <button id="theme-toggle" class="theme-toggle">🌙</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Hi, I'm Sanyam</h1>
+                <p>Welcome to my portfolio! I am a passionate developer focused on creating innovative solutions.</p>
+                <div class="cta-buttons">
+                    <a href="#skills" class="cta-btn">Skills</a>
+                    <a href="#projects" class="cta-btn">Projects</a>
+                    <a href="#contact" class="cta-btn">Contact</a>
+                    
+                </div>
+            </div>
+            <div id="image" class="hero-image">
+                <img src="/assets/IMG_20241006_122303_1_1.jpg" alt="Sanyam Meo" />
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <p>Here are some technologies I work with:</p>
+            <ul>
+                <li>HTML, CSS, JavaScript</li>
+                <li>React.js, Node.js</li>
+                <li>Python, Django</li>
+                <li>Git, GitHub</li>
+                <li>RESTful APIs</li>
+            </ul>
+        </section>
+
+         <section id="projects" class="fade-in-section">
+            <h2>Projects</h2>
+            <p>Here are some projects I've worked on:</p>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>E-commerce Storefront</h3>
+                    <p>Developed a responsive e-commerce application using **React.js** for the frontend and **Node.js with Express** for the backend API. Features user authentication, product catalog, shopping cart, and mock payment integration.</p>
+                    <a href="https://github.com/Hivebrite/hivebrite-mobile/actions/runs/14461833694/job/40555794337#step:9:1" target="_blank" class="project-link">View Project</a>
+                    <a href="#" target="_blank" class="project-link">GitHub Repo</a>
+                </div>
+                <div class="project-card">
+                    <h3>Personal Blog Platform</h3>
+                    <p>Created a full-stack blog platform using **Django** (Python) for robust backend management and **HTML/CSS/JavaScript** for a clean, user-friendly interface. Includes post creation, commenting, and user profiles.</p>
+                    <a href="#" target="_blank" class="project-link">View Project</a>
+                    <a href="#" target="_blank" class="project-link">GitHub Repo</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Feel free to reach out to me for any inquiries or collaborations!</p>
+            
+            
+            <form id="contact-form" action="mailto:sanyam.meo@grazitti.com" method="POST" enctype="text/plain">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Your Name" />
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Your Email" />
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required placeholder="Your Message" rows="5"></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <button onclick="scrollToTop()" id="scrollTopBtn" title="Go to top">↑</button>
+    <footer>
+        <p>&copy; 2025 Sanyam Meo. All rights reserved.</p>
+    </footer>
+
+    <script src="/js/"></script>
+</body>
+</html>
