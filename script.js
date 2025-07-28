@@ -1,54 +1,52 @@
-const themeToggleButton = document.getElementById('theme-toggle');
-
-const currentTheme = localStorage.getItem('theme');
-
-
-if (currentTheme) {
+document.addEventListener('DOMContentLoaded', () => {
+    // Theme Toggle
+    const themeToggleButton = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme') || 'light-mode';
     document.body.classList.add(currentTheme);
-}
+    themeToggleButton.textContent = currentTheme === 'dark-mode' ? '🌞' : '🌙';
 
+    themeToggleButton.addEventListener('click', () => {
+        const isDark = document.body.classList.toggle('dark-mode');
+        const newTheme = isDark ? 'dark-mode' : 'light-mode';
+        localStorage.setItem('theme', newTheme);
+        themeToggleButton.textContent = isDark ? '🌞' : '🌙';
+    });
 
-themeToggleButton.addEventListener('click', () => {
-    
-    if (document.body.classList.contains('dark-mode')) {
-        document.body.classList.remove('dark-mode');
-        localStorage.setItem('theme', 'light-mode');
-        themeToggleButton.textContent = '🌙'; 
-    } else {
-        document.body.classList.add('dark-mode');
-        localStorage.setItem('theme', 'dark-mode');
-        themeToggleButton.textContent = '🌞'; 
+    // Scroll to Top Button
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+        const scrolled = document.documentElement.scrollTop || document.body.scrollTop;
+        scrollTopBtn.style.display = scrolled > 100 ? 'block' : 'none';
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Contact Form Handling
+    const form = document.getElementById('contact-form');
+    const messageBox = document.createElement('div');
+    messageBox.id = 'form-message';
+    messageBox.style.marginTop = '10px';
+    form.appendChild(messageBox);
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const message = form.message.value.trim();
+
+        if (!name || !email || !message) {
+            showMessage('Please fill out all fields.', 'error');
+        } else {
+            showMessage('Message sent successfully!', 'success');
+            form.reset();
+        }
+    });
+
+    function showMessage(msg, type) {
+        messageBox.textContent = msg;
+        messageBox.style.color = type === 'error' ? 'red' : 'green';
     }
 });
-
-
-const form = document.getElementById('contact-form');
-
-form.addEventListener('submit', (event) => {
-    
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-
-    
-    if (!name || !email || !message) {
-        event.preventDefault(); 
-        alert('Please fill out all fields before submitting.');
-    } else {
-        alert('Message sent successfully!');
-    }
-});
-
-window.onscroll = function () {
-    const btn = document.getElementById("scrollTopBtn");
-    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-      btn.style.display = "block";
-    } else {
-      btn.style.display = "none";
-    }
-  };
-
-
-  function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
